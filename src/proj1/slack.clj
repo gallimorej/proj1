@@ -16,5 +16,5 @@
    For more information see:
    https://my.slack.com/services/new/incoming-webhook . (You'll need a slack account
    to see that)"
-  [url text]
-  (client/post url {:form-params {:payload (json/write-str {:text text})}}))
+  [text]
+  (client/post WEBHOOK-URL {:form-params {:payload (json/write-str {:text text})}}))
