@@ -3,9 +3,9 @@
             [clojure.data.json :as json]))
 
 
-; this is the #gallimore-stuff channel
+; this is the #clojure-hacking channel
 
-(def WEBHOOK-URL "https://hooks.slack.com/services/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")
+(def WEBHOOK-URL "https://hooks.slack.com/services/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")
 
 (defn send-to-slack
   "Sends a simple message to slack using an 'incoming webhook'.

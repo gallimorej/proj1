@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77b24a7f-a25b-465f-85e3-2fc80ab678c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/messages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.clj" beforeDir="false" afterPath="$PROJECT_DIR$/project.clj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/proj1/slack.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj1/slack.clj" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,13 +24,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="clj" value="1804" />
+          <entry key="clj" value="1869" />
           <entry key="json" value="214" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Clojure" value="1804" />
+          <entry key="Clojure" value="1869" />
           <entry key="JSON" value="214" />
         </counts>
       </usages-collector>
@@ -77,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/proj1/slack.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+            <state relative-caret-position="105">
+              <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -156,9 +153,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543206201886" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543206545470" />
   </component>
-  <component name="ReplState" timestamp="1543206545467">{:repl-history {:ide [], :local [{:command &quot;(+ 1 1)&quot;, :offset 7, :ns &quot;proj1.core/foo&quot;} {:command &quot;(send-to-slack WEBHOOK-URL \&quot;Dude! My first webhook mesaage to Slack!\&quot;\n               )&quot;, :offset 86, :ns &quot;proj1.slack&quot;} {:command &quot;(json/read-str (slurp \&quot;data/messages.json\&quot;))&quot;, :offset 44, :ns &quot;proj1.core/foo&quot;} {:command &quot;(json/read-str (slurp \&quot;/tmp/test.json\&quot;))&quot;, :offset 40, :ns &quot;proj1.core/foo&quot;} {:command &quot;(require [clojure.data.json :as json])&quot;, :offset 38, :ns &quot;proj1.core/foo&quot;} {:command &quot;(json/read-str \&quot;data/messages.json\&quot;)&quot;, :offset 36, :ns &quot;proj1.core&quot;} {:command &quot;(read-messages)\n  &quot;, :offset 17, :ns &quot;proj1.core&quot;} {:command &quot;(read-messages [])&quot;, :offset 18, :ns &quot;proj1.core&quot;} {:command &quot;(send-to-slack \&quot;test\&quot;)&quot;, :offset 22, :ns &quot;proj1.core&quot;} {:command &quot;(defn read-messages\n  \&quot;Reads in the messages from a JSON file\&quot;\n  [dir]\n  (json/read-str + dir \&quot;/messages.json\&quot;))&quot;, :offset 112, :ns &quot;proj1.slack&quot;} {:command &quot;(read-messages \&quot;data\&quot;)&quot;, :offset 22, :ns &quot;proj1.core&quot;} {:command &quot;(WEBHOOK-URL)&quot;, :offset 13, :ns &quot;proj1.core&quot;} {:command &quot;(proj1.slack)\n  &quot;, :offset 15, :ns &quot;proj1.core&quot;}], :remote []}}</component>
+  <component name="ReplState" timestamp="1543206984675">{:repl-history {:ide [], :local [{:command &quot;(+ 1 1)&quot;, :offset 7, :ns &quot;proj1.core/foo&quot;} {:command &quot;(send-to-slack WEBHOOK-URL \&quot;Dude! My first webhook mesaage to Slack!\&quot;\n               )&quot;, :offset 86, :ns &quot;proj1.slack&quot;} {:command &quot;(json/read-str (slurp \&quot;data/messages.json\&quot;))&quot;, :offset 44, :ns &quot;proj1.core/foo&quot;} {:command &quot;(json/read-str (slurp \&quot;/tmp/test.json\&quot;))&quot;, :offset 40, :ns &quot;proj1.core/foo&quot;} {:command &quot;(require [clojure.data.json :as json])&quot;, :offset 38, :ns &quot;proj1.core/foo&quot;} {:command &quot;(json/read-str \&quot;data/messages.json\&quot;)&quot;, :offset 36, :ns &quot;proj1.core&quot;} {:command &quot;(read-messages)\n  &quot;, :offset 17, :ns &quot;proj1.core&quot;} {:command &quot;(read-messages [])&quot;, :offset 18, :ns &quot;proj1.core&quot;} {:command &quot;(send-to-slack \&quot;test\&quot;)&quot;, :offset 22, :ns &quot;proj1.core&quot;} {:command &quot;(defn read-messages\n  \&quot;Reads in the messages from a JSON file\&quot;\n  [dir]\n  (json/read-str + dir \&quot;/messages.json\&quot;))&quot;, :offset 112, :ns &quot;proj1.slack&quot;} {:command &quot;(read-messages \&quot;data\&quot;)&quot;, :offset 22, :ns &quot;proj1.core&quot;} {:command &quot;(WEBHOOK-URL)&quot;, :offset 13, :ns &quot;proj1.core&quot;} {:command &quot;(proj1.slack)\n  &quot;, :offset 15, :ns &quot;proj1.core&quot;}], :remote []}}</component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -301,8 +298,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proj1/slack.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        <state relative-caret-position="105">
+          <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
         </state>
       </provider>
     </entry>
