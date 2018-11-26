@@ -29,13 +29,13 @@
 (defn process-message
   [messages]
   (if (not (empty? messages))
-    (do (send-to-slack ((first messages) :text))
-        (process-message (rest messages)))))
+    (do
+      (send-to-slack ((first messages) :text))
+      (process-message (rest messages)))))
 
 (defn process-messages
   []
   (let [messages (read-messages)]
-    (count (messages :message))
     (process-message (messages :message))))
 
 
