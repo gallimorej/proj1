@@ -1,3 +1,6 @@
 {
-  "message": "This is a message to be posted in Slack"
+  "message": [
+    {"text": "This is a message to be posted in Slack"},
+    {"text": "This is another message to be posted in Slack"}
+  ]
 }

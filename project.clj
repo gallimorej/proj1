@@ -6,4 +6,4 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [clj-http "3.9.1"]
                  [org.clojure/data.json "0.2.6"]]
-  :main proj1.core/foo)
+  :main proj1.slack)

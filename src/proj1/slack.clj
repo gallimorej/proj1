@@ -20,3 +20,24 @@
    (client/post WEBHOOK-URL {:form-params {:payload (json/write-str {:text text})}}))
   ([url text]
    (client/post url {:form-params {:payload (json/write-str {:text text})}})))
+
+(defn read-messages
+  "Reads in the messages from a JSON file"
+  []
+  (json/read-str (slurp "data/messages.json") :key-fn keyword))
+
+(defn process-message
+  [messages]
+  (if (not (empty? messages))
+    (do (send-to-slack ((first messages) :text))
+        (process-message (rest messages)))))
+
+(defn process-messages
+  []
+  (let [messages (read-messages)]
+    (count (messages :message))
+    (process-message (messages :message))))
+
+
+    ;;(send-to-slack (messages :message)))))
+
