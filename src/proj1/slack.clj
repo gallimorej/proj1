@@ -7,7 +7,7 @@
 
 (def WEBHOOK-URL "https://hooks.slack.com/services/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")
 
-(defn send-to-slack
+(defn send-to-slack!
   "Sends a simple message to slack using an 'incoming webhook'.
    url will be of form: https://myapp.slack.com/services/hooks/incoming-webhook?token=mytoken .
    (Exact url you should use will appear on the slack integration page)
@@ -30,7 +30,7 @@
   [messages]
   (if (not (empty? messages))
     (do
-      (send-to-slack ((first messages) :text))
+      (send-to-slack! ((first messages) :text))
       (process-message (rest messages)))))
 
 (defn process-messages
@@ -39,5 +39,20 @@
     (process-message (messages :message))))
 
 
-    ;;(send-to-slack (messages :message)))))
+;=====
+
+(defn process-one-message!
+  " side effect: post to slack channel "
+  [m]
+  (send-to-slack! (:text m)))
+
+(defn process-all-messages!
+  " read all messages from file
+    then send each of them to slack "
+  []
+  (let [message (read-messages)
+        texts (:message message)]
+    (run! process-one-message! texts)))
+
+
 
