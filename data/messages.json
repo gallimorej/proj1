@@ -2,7 +2,6 @@
   "message": [
     {"text": "This is a message to be posted in Slack"},
     {"text": "This is another message to be posted in Slack"},
-    {"text": "/remind @channel add an emoji to this automagic reminder today at 1pm"},
-    {"text": "<@U027Z5SHF> this is a message!"}
+    {"text": "/remind @channel add an emoji to this automagic reminder today at 1pm"}
   ]
 }
