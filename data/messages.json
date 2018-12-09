@@ -1,7 +1,16 @@
 {
   "message": [
-    {"text": "This is a message to be posted in Slack"},
-    {"text": "This is another message to be posted in Slack"},
-    {"text": "/remind @channel add an emoji to this automagic reminder today at 1pm"}
+    {
+      "scheduled-date-time": "2019-10-19 08:00:00",
+      "text": "This is a message to be posted in Slack",
+    },
+    {
+      "scheduled-date-time": "2019-10-20 09:00:00",
+      "text": "This is another message to be posted in Slack",
+    },
+    {
+      "scheduled-date-time": "2019-10-21 10:00:00",
+      "text": "/remind @channel add an emoji to this automagic reminder today at 1pm"
+    }
   ]
 }

@@ -1,7 +1,7 @@
 (ns proj1.slack
   (:require [clj-http.client :as client]
-            [clojure.data.json :as json]))
-
+            [clojure.data.json :as json]
+            [java-time]))
 
 ; this is the #clojure-hacking channel
 
@@ -26,20 +26,12 @@
   []
   (json/read-str (slurp "data/messages.json") :key-fn keyword))
 
-(defn process-message
-  [messages]
-  (if (not (empty? messages))
-    (do
-      (send-to-slack! ((first messages) :text))
-      (process-message (rest messages)))))
-
-(defn process-messages
+(defn get-messages
+  "Gets the messages to be scheduled"
   []
-  (let [messages (read-messages)]
-    (process-message (messages :message))))
-
-
-;=====
+  ;TODO: process the keywords to convert strings to other data types
+  ;(map (fn [x] (update x :scheduled-date-time #(local-date-time "yyyy/MM/dd HH:mm:ss" %)) (read-messages)))
+  (read-messages))
 
 (defn process-one-message!
   " side effect: post to slack channel "
@@ -50,9 +42,14 @@
   " read all messages from file
     then send each of them to slack "
   []
-  (let [message (read-messages)
-        texts (:message message)]
-    (run! process-one-message! texts)))
+  (let [messages (get-messages)
+        message (:message messages)]
+    (run! process-one-message! message)))
+
+(defn gen-date-time
+  " generates a date time"
+  []
+  (local-date-time "yyyy/MM/dd HH:mm:ss" "2015/10/01 01:02:03"))
 
 
 
