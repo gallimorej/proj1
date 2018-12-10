@@ -33,10 +33,23 @@
   ;(map (fn [x] (update x :scheduled-date-time #(local-date-time "yyyy/MM/dd HH:mm:ss" %)) (read-messages)))
   (read-messages))
 
+(defn convert-date-time-str
+  "Converts a string to a date-time"
+  [the-date-time-str]
+  (local-date-time "yyyy-MM-dd HH:mm:ss" the-date-time-str))
+
+(defn fix-message-val-types!
+  "Fixes the datatypes for the values in the message, turning them from strings to other things
+   side effect is that the message passed in changes"
+  [m]
+  (update m :scheduled-date-time convert-date-time-str))
+
 (defn process-one-message!
   " side effect: post to slack channel "
   [m]
-  (send-to-slack! (:text m)))
+  (fix-message-val-types! m)
+  (println m))
+  ;(send-to-slack! (:text m)))
 
 (defn process-all-messages!
   " read all messages from file
