@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [clj-http "3.9.1"]
                  [org.clojure/data.json "0.2.6"]
-                 [clojure.java-time "0.3.2"]]
+                 [clojure.java-time "0.3.2"]
+                 [com.novemberain/monger "3.1.0"]]
   :plugins [[com.jakemccrary/lein-test-refresh "LATEST"]]                 
   :main proj1.slack)

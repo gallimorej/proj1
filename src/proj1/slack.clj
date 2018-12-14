@@ -26,6 +26,11 @@
   []
   (json/read-str (slurp "data/messages.json") :key-fn keyword))
 
+(defn convert-date-time-str
+  "Converts a string to a date-time"
+  [the-date-time-str]
+  (time/local-date-time "yyyy-MM-dd HH:mm:ss" the-date-time-str))
+
 (defn fix-message-val-types
   "Fixes the datatypes for the values in the message, turning them from strings to other things
    side effect is that the message passed in changes"
@@ -47,10 +52,7 @@
   ;(map (fn [x] (update x :scheduled-date-time #(local-date-time "yyyy/MM/dd HH:mm:ss" %)) (read-messages)))
   ;(read-messages))
 
-(defn convert-date-time-str
-  "Converts a string to a date-time"
-  [the-date-time-str]
-  (time/local-date-time "yyyy-MM-dd HH:mm:ss" the-date-time-str))
+
 
 
 
