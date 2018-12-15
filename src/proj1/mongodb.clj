@@ -10,6 +10,8 @@
 
 (defonce db (atom nil))
 
+(def COLLECTION "messages")
+
 ; connection to monggodb
 (reset! db
         (try
@@ -24,7 +26,7 @@
          returns number of records changed; should almost always be 1? "
        [username record]
 ;       [string? map? => int?]
-       (let [retval (mc/update (:db @db) *db-collection*
+       (let [retval (mc/update (:db @db)
                                {:name username}
                                {:name    username
                                 :hotkeys record}
@@ -37,7 +39,7 @@
        " count how many documents in the database "
        []
  ;      [=> int?]
-       (mc/count (:db @db) *db-collection*))
+       (mc/count (:db @db) COLLECTION))
 
 (defn delete-all-documents!
        " because of danger, first arg must be 'confirm' "
