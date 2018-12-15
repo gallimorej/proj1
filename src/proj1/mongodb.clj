@@ -19,11 +19,11 @@
                              nil)))
 
 
-(>defn update-user-record!
+(defn update-user-record!
        " given trello user name, update the board record in database
          returns number of records changed; should almost always be 1? "
        [username record]
-       [string? map? => int?]
+;       [string? map? => int?]
        (let [retval (mc/update (:db @db) *db-collection*
                                {:name username}
                                {:name    username
@@ -33,16 +33,16 @@
              n      (.getN retval)]
          n))
 
-(>defn count-documents
+(defn count-documents
        " count how many documents in the database "
        []
-       [=> int?]
+ ;      [=> int?]
        (mc/count (:db @db) *db-collection*))
 
-(>defn delete-all-documents!
+(defn delete-all-documents!
        " because of danger, first arg must be 'confirm' "
        [confirm-str collection]
-       [string? string? => boolean?]
+ ;      [string? string? => boolean?]
        (if (= confirm-str "confirm")
          (do
            (mc/remove (:db @db) collection)
