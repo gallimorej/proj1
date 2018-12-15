@@ -35,19 +35,14 @@
   "Fixes the datatypes for the values in the message, turning them from strings to other things
    side effect is that the message passed in changes"
   [m]
-  (update m :scheduled-date-time convert-date-time-str))
+  (assoc m :java-time convert-date-time-str))
 
 (defn get-messages!
   "Gets the messages to be scheduled"
   []
   ;TODO: process the keywords to convert strings to other data types
   ; same as below
-  ; (->> (read-messages!)
-  ;     :message
-  ;     (map fix-message-val-types!))
-  (let [msgs    (:message (read-messages!))
-        updated (map fix-message-val-types msgs)]
-    updated))
+  ; (->> (read-messages!))
 
   ;(map (fn [x] (update x :scheduled-date-time #(local-date-time "yyyy/MM/dd HH:mm:ss" %)) (read-messages)))
   ;(read-messages))
