@@ -42,7 +42,12 @@
   []
   ;TODO: process the keywords to convert strings to other data types
   ; same as below
-  ; (->> (read-messages!))
+  ; (->> (read-messages!)
+  ;     :message
+  ;     (map fix-message-val-types!))
+  (let [msgs    (:message (read-messages!))
+        updated (map fix-message-val-types msgs)]
+    updated))
 
   ;(map (fn [x] (update x :scheduled-date-time #(local-date-time "yyyy/MM/dd HH:mm:ss" %)) (read-messages)))
   ;(read-messages))
