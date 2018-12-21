@@ -35,7 +35,7 @@
   "Fixes the datatypes for the values in the message, turning them from strings to other things
    side effect is that the message passed in changes"
   [m]
-  (update m :scheduled-date-time convert-date-time-str))
+  (assoc m :java-time convert-date-time-str))
 
 (defn get-messages!
   "Gets the messages to be scheduled"
