@@ -1,7 +1,8 @@
 (ns proj1.slack
   (:require [clj-http.client :as client]
             [clojure.data.json :as json]
-            [java-time :as time]))
+            [java-time :as time]
+            [proj1.mongodb :as mongodb]))
 
 ; this is the #clojure-hacking channel
 
@@ -22,9 +23,12 @@
    (client/post url {:form-params {:payload (json/write-str {:text text})}})))
 
 (defn read-messages!
-  "Reads in the messages from a JSON file"
-  []
-  (json/read-str (slurp "data/messages.json") :key-fn keyword))
+  "Reads in the messages from the default JSON file or specified mongodb"
+  ([]
+   (json/read-str (slurp "data/messages.json") :key-fn keyword))
+  ([db]
+   (let [msgs (mongodb/get-documents!)]
+     {:message (into [] msgs)})))
 
 (defn convert-date-time-str
   "Converts a string to a date-time"
@@ -39,35 +43,34 @@
 
 (defn get-messages!
   "Gets the messages to be scheduled"
-  []
-  ;TODO: process the keywords to convert strings to other data types
+  [messages]
   ; same as below
   ; (->> (read-messages!)
   ;     :message
   ;     (map fix-message-val-types!))
-  (let [msgs    (:message (read-messages!))
+  (let [msgs    (:message messages)
         updated (map fix-message-val-types msgs)]
-    updated))
+    {:message updated}))
 
   ;(map (fn [x] (update x :scheduled-date-time #(local-date-time "yyyy/MM/dd HH:mm:ss" %)) (read-messages)))
   ;(read-messages))
 
-
-
-
+(defn load-messages!
+  []
+  (let [msgs (:message (read-messages!))]
+    (mongodb/load-documents! msgs)))
 
 (defn process-one-message!
   " side effect: post to slack channel "
   [m]
-  (fix-message-val-types m)
-  (println m))
-  ;(send-to-slack! (:text m)))
+  ;(println m))
+  (send-to-slack! (:text m)))
 
 (defn process-all-messages!
   " read all messages from file
     then send each of them to slack "
   []
-  (let [messages (get-messages!)
+  (let [messages (get-messages! (read-messages! mongodb/db))
         message (:message messages)]
     (run! process-one-message! message)))
 

@@ -51,10 +51,20 @@
            true)
          false))
 
+(defn load-documents!
+  [collection]
+  (let [{:keys [conn db]} (mg/connect-via-uri uri)]
+   (mc/insert-batch db COLLECTION collection)))
 
 ;
 ; end
 ;
+
+(defn get-documents!
+  []
+  (let [{:keys [conn db]} (mg/connect-via-uri uri)]
+    (mc/find-maps db COLLECTION)))
+
 
 (defn- testx [username record]
   ; returns
