@@ -41,7 +41,7 @@
   [m]
   (assoc m :java-time convert-date-time-str))
 
-(defn get-messages!
+(defn get-messages
   "Gets the messages to be scheduled"
   [messages]
   ; same as below
@@ -70,7 +70,7 @@
   " read all messages from file
     then send each of them to slack "
   []
-  (let [messages (get-messages! (read-messages! mongodb/db))
+  (let [messages (get-messages (read-messages! mongodb/db))
         message (:message messages)]
     (run! process-one-message! message)))
 
