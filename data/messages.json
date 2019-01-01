@@ -11,6 +11,9 @@
     {
       "scheduled-date-time": "2019-10-21 10:00:00",
       "text": "/remind @channel add an emoji to this automagic reminder today at 1pm"
+    },
+    {
+      "text": "Invalid message because it doesn't have a scheduled-date-time"
     }
   ]
 }

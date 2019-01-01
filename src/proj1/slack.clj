@@ -1,12 +1,23 @@
 (ns proj1.slack
   (:require [clj-http.client :as client]
             [clojure.data.json :as json]
+            [clojure.spec.alpha :as spec]
             [java-time :as time]
             [proj1.mongodb :as mongodb]))
 
 ; this is the #clojure-hacking channel
 
 (def WEBHOOK-URL "https://hooks.slack.com/services/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")
+
+(spec/def ::scheduled-date-time string?)
+
+(spec/def ::text string?)
+
+(spec/def
+  ::message
+  (spec/keys
+    :req-un
+    [::scheduled-date-time ::text]))
 
 (defn send-to-slack!
   "Sends a simple message to slack using an 'incoming webhook'.
@@ -63,13 +74,17 @@
 (defn process-one-message!
   " side effect: post to slack channel "
   [m]
-  ;(println m))
-  (send-to-slack! (:text m)))
+  ;TODO throw an exception if it's an invalid message
+  (if (spec/valid? ::message m)
+    (println m)
+    (println (str "Invalid message: " m))))
+    ;(send-to-slack! (:text m))))
 
 (defn process-all-messages!
   " read all messages from file
     then send each of them to slack "
   []
+  ;TODO allow conditionally setting or passing in the data source for read-messages!
   (let [messages (get-messages (read-messages! mongodb/db))
         message (:message messages)]
     (run! process-one-message! message)))
