@@ -8,5 +8,8 @@
                  [org.clojure/data.json "0.2.6"]
                  [clojure.java-time "0.3.2"]
                  [com.novemberain/monger "3.1.0"]]
-  :plugins [[com.jakemccrary/lein-test-refresh "LATEST"]]                 
+  :profiles
+  {:dev
+   {:plugins [[com.jakemccrary/lein-test-refresh "LATEST"]]}}
+
   :main proj1.slack)
