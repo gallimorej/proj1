@@ -8,6 +8,8 @@
                  [org.clojure/data.json "0.2.6"]
                  [clojure.java-time "0.3.2"]
                  [com.novemberain/monger "3.1.0"]]
+
+  :uberjar-name "proj1.jar"
   :profiles
   {:dev
    {:plugins [[com.jakemccrary/lein-test-refresh "LATEST"]]}}
