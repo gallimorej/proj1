@@ -84,7 +84,6 @@
   " read all messages from file
     then send each of them to slack "
   []
-  ;TODO allow conditionally setting or passing in the data source for read-messages!
   (let [messages (get-messages (read-messages! mongodb/db))
         message (:message messages)]
     (run! process-one-message! message)))
