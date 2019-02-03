@@ -4,7 +4,7 @@
             [clojure.java.io :as io]
             [ring.adapter.jetty :as jetty]
             [environ.core :refer [env]]
-            [hiccup.core :refer :all])
+            [hiccup.core :refer [html]])
   (:gen-class))
 
 ; https://learnxinyminutes.com/docs/compojure/
