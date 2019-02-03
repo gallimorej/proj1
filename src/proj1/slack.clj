@@ -3,7 +3,8 @@
             [clojure.data.json :as json]
             [clojure.spec.alpha :as spec]
             [java-time :as time]
-            [proj1.mongodb :as mongodb]))
+            [proj1.mongodb :as mongodb])
+  (:gen-class))
 
 ; this is the #clojure-hacking channel
 
@@ -93,6 +94,9 @@
   []
   (time/local-date-time "yyyy/MM/dd HH:mm:ss" "2015/10/01 01:02:03"))
 
+
+(defn -main [& args]
+  (process-all-messages!))
 
 #_ (def m (:message (get-messages!)))
 
