@@ -7,6 +7,7 @@
             [hiccup.core :refer [html]])
   (:gen-class))
 
+; https://practicalli.github.io/clojure-webapps/introducing-ring/
 ; https://learnxinyminutes.com/docs/compojure/
 
 (defn body []
