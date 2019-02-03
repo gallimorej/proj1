@@ -10,3 +10,16 @@ worker:
 
 uberjar:
 	lein uberjar
+
+push-heroku:
+	#git push heroku master
+	git push heroku add-master:master
+
+open-heroku:
+	heroku open
+
+config-heroku:
+	heroku addons:create scheduler:standard	
+
+worker-heroku:
+	heroku run worker
