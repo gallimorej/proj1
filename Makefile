@@ -34,7 +34,7 @@ push-heroku:
 	#
 	# but when you need to push from non-master branch, use this...
 	# 
-	git push heroku add-master:master
+	git push heroku add-worker:master
 
 open-heroku:
 	heroku open

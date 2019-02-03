@@ -15,13 +15,13 @@
                  [hiccup "1.0.5"]]
 
   :min-lein-version "2.0.0"
-  :plugins [[environ/environ.lein "0.3.1"]
-            [lein-ring "0.12.4"]
-            [lein-ancient "0.6.15"]]
+  :plugins [[environ/environ.lein "0.3.1"]]
   ;:hooks [environ.leiningen.hooks]
   :uberjar-name "proj1.jar"
   :profiles {:production {:env {:production true}}
-             :dev        {:plugins [[com.jakemccrary/lein-test-refresh "LATEST"]]}
+             :dev        {:plugins [[com.jakemccrary/lein-test-refresh "LATEST"]
+                                    [lein-ring "0.12.4"]
+                                    [lein-ancient "0.6.15"]]}
              :uberjar    {:aot :all}}
   :ring {:handler       proj1.web/handler
          :auto-reload?  true
