@@ -12,7 +12,11 @@ uberjar:
 	lein uberjar
 
 push-heroku:
+	# usually you'll want to use this...
 	#git push heroku master
+	#
+	# but when you need to push from non-master branch, use this...
+	# 
 	git push heroku add-master:master
 
 open-heroku:
