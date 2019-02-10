@@ -77,9 +77,11 @@
   [m]
   ;TODO throw an exception if it's an invalid message
   (if (spec/valid? ::message m)
-    (println m)
+    (send-to-slack! (:text m))
+    ;(println m)
     (println (str "Invalid message: " m))))
-    ;(send-to-slack! (:text m))))
+
+
 
 (defn process-all-messages!
   " read all messages from file
