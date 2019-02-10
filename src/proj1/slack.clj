@@ -81,8 +81,6 @@
     ;(println m)
     (println (str "Invalid message: " m))))
 
-
-
 (defn process-all-messages!
   " read all messages from file
     then send each of them to slack "
